@@ -16,18 +16,8 @@ int main(){
         }
         if(temperature[j]<min){
             min=temperature[j];
-<<<<<<< HEAD
         }
     }
     printf("coldest temperature= %dC",min);
     printf("\nhottest temperature= %dC",max);
 }
-=======
-        
-
-    }
-}
-    printf("Coldest temperature= %d C",min);
-    printf("\n Hottest temperature= %d C",max);
-}
->>>>>>> b22cc33ac0fec859a63a2eab6eafbb65e1106037
