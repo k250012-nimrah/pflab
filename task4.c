@@ -1,37 +1,4 @@
-#include<stdio.h>
-int main(){
-    int arr[100];
-    int size; 
-    printf("Enter the number of elements in the array: ");
-    scanf("%d", &size);
-    printf("Enter %d elements:\n", size);
-    for (int i = 0; i < size; i++) {
-        scanf("%d", &arr[i]);
-    }
-    printf("Original array: [");
-    for (int i = 0; i < size; i++) {
-        printf("%d", arr[i]);
-        if (i < size - 1) {
-            printf(", ");
-        }
-    }
-    printf("]\n");
-    int left = 0;
-    int right = size - 1;
-        while (left < right) {
-        int temp = arr[left];
-        arr[left] = arr[right];
-        arr[right] = temp;
-        left++;
-        right--;
-    }
-    printf("Reversed array: [");
-    for (int i = 0; i < size; i++) {
-        printf("%d", arr[i]);
-        if (i < size - 1) {
-            printf(", ");
-        }
-    }
-    printf("]\n");
-    return 0;
-}
+#include <stdio.h>
+void val(int x){x+=5;}
+void ref(int *x){*x+=5;}
+int main(){int n;printf("Enter a number: ");scanf("%d",&n);printf("Before updateValue: %d\n",n);val(n);printf("After updateValue: %d\n",n);printf("Before updateReference: %d\n",n);ref(&n);printf("After updateReference: %d\n",n);}

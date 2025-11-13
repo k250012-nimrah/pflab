@@ -1,33 +1,5 @@
-#include<stdio.h>
-int main(){
-    int n;
-    printf("enter the number of elements to be entered");
-    scanf("%d",&n);
-    int temperature[n];
-    for(int i=0;i<n;i++){
-        printf("day %d= ",i+1);
-        scanf("%d",&temperature[i]);
-    }
-    int max=temperature[0];
-    int min=temperature[0];
-    for(int j=0;j<n;j++){
-        if(temperature[j]>max){
-            max=temperature[j];
-        }
-        if(temperature[j]<min){
-            min=temperature[j];
-<<<<<<< HEAD
-        }
-    }
-    printf("coldest temperature= %dC",min);
-    printf("\nhottest temperature= %dC",max);
-}
-=======
-        
-
-    }
-}
-    printf("Coldest temperature= %d C",min);
-    printf("\n Hottest temperature= %d C",max);
-}
->>>>>>> b22cc33ac0fec859a63a2eab6eafbb65e1106037
+#include <stdio.h>
+int busy(int a[],int n){int i,m=a[0],d=0;for(i=1;i<n;i++)if(a[i]>m){m=a[i];d=i;}return d;}
+int slow(int a[],int n){int i,m=a[0],d=0;for(i=1;i<n;i++)if(a[i]<m){m=a[i];d=i;}return d;}
+float avgP(int a[],int n){int s=0;for(int i=0;i<n;i++)s+=a[i];return (float)s/n;}
+int main(){int a[7];printf("Enter patients for 7 days:\n");for(int i=0;i<7;i++)scanf("%d",&a[i]);float avg=avgP(a,7);int b=busy(a,7),s=slow(a,7);printf("Average Patients per Day: %.2f\n",avg);printf("Busiest Day: Day %d (%d patients)\n",b+1,a[b]);printf("Slowest Day: Day %d (%d patients)\n",s+1,a[s]);}

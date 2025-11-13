@@ -1,47 +1,22 @@
-#include<stdio.h>
-int main(){
-    int arr[100];
-    int size, target;
-    printf("Enter the number of elements in the array: ");
-    scanf("%d", &size);
-    printf("Enter %d elements:\n", size);
-    for (int i = 0; i < size; i++) {
-        scanf("%d", &arr[i]);
-    }
-    printf("Original array: [");
-    for (int i = 0; i < size; i++) {
-        printf("%d", arr[i]);
-        if (i < size - 1) {
-            printf(", ");
-        }
-    }
-    printf("]\n");
-    printf("Enter the value to be deleted in the array: ");
-    scanf("%d", &target);
-    if (size == 0) {
-        printf("Array is empty\n");
-    }
-    int newSize = 0;   
-    for (int i = 0; i < size; i++) {
-        if (arr[i] != target) {
-            arr[newSize] = arr[i];
-            newSize++;
-        }
-    }
-    size = newSize;
-    printf("Array after deleting all occurrences of %d: ", target);
-    if (size == 0) {
-        printf("Array is empty\n");
-    } else {
-        printf("[");
-        for (int i = 0; i < size; i++) {
-            printf("%d", arr[i]);
-            if (i < size - 1) {
-                printf(", ");
+#include <stdio.h>
+void find(int x[],int n,int t,int *p1,int *p2){
+    for(int i=0;i<n;i++){
+        for(int j=i+1;j<n;j++){
+            if(x[i]+x[j]==t){
+                *p1=i;
+                *p2=j;
+                return;
             }
         }
-        printf("]\n");
     }
-    printf("New size: %d\n", size);
+}
+int main(){
+    int n,t,p1,p2;
+    scanf("%d",&n);
+    int x[n];
+    for(int i=0;i<n;i++) scanf("%d",&x[i]);
+    scanf("%d",&t);
+    find(x,n,t,&p1,&p2);
+    printf("%d %d",p1,p2);
     return 0;
 }
